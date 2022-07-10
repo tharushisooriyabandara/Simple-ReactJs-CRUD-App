@@ -1,4 +1,5 @@
 import { React , Component } from 'react';
+import './App.css';
 
 class App extends Component {
   constructor() {
@@ -78,19 +79,25 @@ class App extends Component {
       <div>
 
       <h1>{this.state.title}</h1>
-      <form ref = "myForm">
+      <form ref = "myForm" className='myForm'>
         <label> Name </label>
-        <input type = "text" ref = "txtName" placeholder = "Enter Name"/>
+        <input type = "text" ref = "txtName" placeholder = "Enter Name" className='formField'/>
         <label> Age </label>
-        <input type = "text" ref = "txtAge" placeholder = "Enter Age"/>
-        <button onClick = { e => this.handleSubmit(e) }> Save </button>
+        <input type = "text" ref = "txtAge" placeholder = "Enter Age" className='formField'/>
+        <button onClick = { e => this.handleSubmit(e) } className = 'myButton'> Save </button>
       </form>
-      <table>
+
+      <h1></h1>
+
+      <table className='table'>
         <tr>
           <th> Name </th>
           <th> Age </th>
+          <th> Edit </th>
+          <th> Delete </th>
         </tr>
 
+      
         {
           employeeData.map((data,i) =>
           <tr key = {i}>
@@ -98,15 +105,15 @@ class App extends Component {
             <td> {data.age} </td>
 
             <td>
-              <button onClick={i=>this.handleEdit(i)}> Edit </button>
+              <button onClick={i=>this.handleEdit(i)} className = 'myButton'> Edit </button>
             </td>
            
            <td>
-            <button onClick = {i=>this.handleDelete(i)}> Delete </button>
+            <button onClick = {i=>this.handleDelete(i)} className = 'myButton'> Delete </button>
            </td>
 
           </tr>)
-        }
+        } 
 
 
 
